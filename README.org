@@ -4,11 +4,9 @@
 
 Readel is a basic retrieval system for Readeck annotations. It will
 show or insert highlights (called "annotations" in Readeck) from a
-selected article (called "bookmark" in Readeck).
+selected article (called "bookmark") in Org-mode formatting.
 
 Readeck is a self-hosted read-it-later system. See [[https://readeck.org][readeck.org]].
-
-Note: The code is very basic. There's no error handling involved.
 
 To use Readel, set the following parameters:
 
@@ -19,7 +17,8 @@ To use Readel, set the following parameters:
 #+end_src
 
 Note:
- - Set =readel-bookmarks-label= to nil to disable filtering.
+ - Set =readel-bookmarks-label= to nil to disable filtering of
+   bookmarks.
  - Make sure there is no trailing =/= in the =readel-url=.
 
 Readel will retrieve and show highlights in Org-mode formatting.
@@ -27,5 +26,12 @@ Readel will retrieve and show highlights in Org-mode formatting.
 Readel provides two user-facing functions:
 - =readel-annotations-insert-from-bm= to select a bookmark and display
   its annotations in a separate buffer.
-- =readel-annotations-buffer-render= to insert annotations at point.
+- =readel-annotations-buffer-render= to select a bookmark and insert its
+  annotations at point.
 
+Note: The code is very basic. Data is stored in alists as retrieved
+from the server. The =request= code will wait until requests are
+completed. There's no error handling involved.
+
+But it does allow me to quickly get highlights from articles I've
+saved into and read on Readeck, which is pretty useful.
