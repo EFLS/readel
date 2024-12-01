@@ -36,8 +36,10 @@ completed. There's no error handling involved.
 But it does allow me to quickly get highlights from articles I've
 saved into and read on Readeck, which is pretty useful.
 
-Similar (but much more elaborate) projects:
-- [[https://github.com/Kungsgeten/hypothesis][Hypothesis.el]] for annotations on hypothes.is
+Similar (but much more elaborate) projects for different types of
+read-it-later services:
+- [[https://github.com/Kungsgeten/hypothesis][Hypothesis.el]] for annotations on hypothes.is. I have used this for a long time, it's amazing to use when you annotate with [[https://hypothes.is/]].
 - [[https://github.com/karthink/wombag][Wombag]] and [[https://github.com/chenyanming/wallabag.el][Wallabag.el]] for (much more extensive) integration with
-  Wallabag.
+  Wallabag. I really like Wombag, as it uses the elfeed interface to
+  interact with stored articles.
 
