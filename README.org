@@ -35,3 +35,9 @@ completed. There's no error handling involved.
 
 But it does allow me to quickly get highlights from articles I've
 saved into and read on Readeck, which is pretty useful.
+
+Similar (but much more elaborate) projects:
+- [[https://github.com/Kungsgeten/hypothesis][Hypothesis.el]] for annotations on hypothes.is
+- [[https://github.com/karthink/wombag][Wombag]] and [[https://github.com/chenyanming/wallabag.el][Wallabag.el]] for (much more extensive) integration with
+  Wallabag.
+
