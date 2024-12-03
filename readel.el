@@ -108,7 +108,7 @@ Only stores bookmarks with label `rd-bookmarks-label'."
                 (setq rd--bookmarks
                       (seq-group-by
                        (lambda (x) (alist-get 'title x))
-                       (seq-into data 'list))))))q)
+                       (seq-into data 'list)))))))
 
 (defun rd--store-info-from-id (id)
   "Via API, store article info from bookmark `ID' in `rd--bm-info'."
