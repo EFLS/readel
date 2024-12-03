@@ -198,8 +198,9 @@ Only stores bookmarks with label `rd-bookmarks-label'."
     (with-current-buffer (get-buffer-create rd-buffer-name)
       (erase-buffer)
       (rd--buffer-write-front)
-      (rd--buffer-write-annotations)))
-  (switch-to-buffer rd-buffer-name))
+      (rd--buffer-write-annotations)
+      (org-mode))
+    (switch-to-buffer rd-buffer-name)))
 
 (provide 'readel)
 ;;; readel.el ends here
