@@ -174,6 +174,13 @@ Only stores bookmarks with label `rd-bookmarks-label'."
     id))
 
 
+;;; Open Bookmark in EWW
+(defun rd-browse-bookmark (id)
+  "Select bookmark to browse in EWW"
+  (interactive (list (rd--select-bookmark-id)))
+  (let ((url (format "%s/bookmarks/%s" rd-url id)))
+    (eww url)))
+
 
 ;;; Main commands
 
