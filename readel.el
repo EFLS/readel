@@ -182,6 +182,36 @@ Only stores bookmarks with label `rd-bookmarks-label'."
     (eww url)))
 
 
+;;; Remove `rd-bookmarks-label' from a bookmark with said label
+
+;; First the API request
+(defun rd--remove-label-from-id (id)
+  "Via API, remove label `rd-bookmarks-label' from bookmark `ID'."
+  (if (string-empty-p rd-bookmarks-label)
+      (message "Can't remmove label, as `readeck-bookmarks-label' is empty.")
+    (request
+      (format "%s/api/bookmarks/%s" rd-url id)
+      :parser 'json-read
+      :headers `(("Accept" . "application/json")
+                 ("Content-Type" . "application/json")
+                 ("Authorization" . ,(format "Bearer %s" rd-token)))
+      :data (json-encode `(("remove_labels" . (,rd-bookmarks-label))))
+      :type "PATCH"
+      :sync t
+      :success (cl-function
+                (lambda (&key data &allow-other-keys)
+                  (message "Removed label"))))))
+
+;; Then a user-facing function
+;;;###autoload
+(defun rd-remove-label-from-bm ()
+  "Remove `rd-bookmarks-label' from a selected bookmark."
+  (interactive)
+  (rd--store-bookmarks)
+  (let ((id (rd--select-bookmark-id)))
+    (rd--remove-label-from-id id)))
+
+
 ;;; Main commands
 
 ;;;###autoload
