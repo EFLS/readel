@@ -168,10 +168,11 @@ Only stores bookmarks with label `rd-bookmarks-label'."
 ;; TODO: Issue when titles are not unique?
 (defun rd--select-bookmark-id ()
   "Interactively select a bookmark stored in `rd--bookmarks' and return its ID."
-  (let* ((title (completing-read "Bookmark: " rd--bookmarks))
+  (let* ((title (completing-read "Title: " rd--bookmarks))
          (bm (assoc title rd--bookmarks))
          (id (alist-get 'id (car (cdr bm)))))
     id))
+
 
 
 ;;; Main commands
