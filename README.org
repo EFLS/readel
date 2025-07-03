@@ -8,12 +8,26 @@ selected article (called "bookmark") in Org-mode formatting.
 
 Readeck is a self-hosted read-it-later system. See [[https://readeck.org][readeck.org]].
 
+Typically, I'll use Readel like this:
+ 1. I'm reading a saved article in Readeck, and I want to save title,
+    link and annotations to a note in Emacs.
+ 2. I tag the article "process" in Readeck.
+ 3. I create a new note in Emacs Org-mode.
+ 4. I call =readel-annotations-insert-from-bm= and select the article
+    from the list, which inserts Org formatted annotations. Because
+    =readel-bookmarks-label= is set to ="process"=, I can easily find the
+    article.
+ 5. I modify the note to my liking and call
+    =readel-remove-label-from-bm= to remove the temporary label from the
+    article.
+
+
 To use Readel, set the following parameters:
 
 #+begin_src emacs-lisp
 (setq readel-url "https://url.to.readeck"  ;; Readeck URL
       readel-token "abc123"                ;; Readeck API token
-      readel-bookmarks-label "label")      ;; Label to filter bookmarks
+      readel-bookmarks-label "process")    ;; Label to filter bookmarks
 #+end_src
 
 Note:
@@ -24,10 +38,10 @@ Note:
 Readel will retrieve and show highlights in Org-mode formatting.
 
 Readel provides two user-facing functions:
-- =readel-annotations-insert-from-bm= to select a bookmark and display
-  its annotations in a separate buffer.
-- =readel-annotations-buffer-render= to select a bookmark and insert its
+- =readel-annotations-insert-from-bm= to select a bookmark and insert its
   annotations at point.
+- =readel-annotations-buffer-render= to select a bookmark and display
+  its annotations in a separate buffer.
 
 Note: The code is very basic. Data is stored in alists as retrieved
 from the server. The =request= code will wait until requests are
